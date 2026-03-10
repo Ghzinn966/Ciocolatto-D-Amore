@@ -60,10 +60,17 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ## 👥 Equipe
 Este projeto foi construído por um grupo incrível de **[Número]** desenvolvedores:
 
-| Foto | Nome | Função/Squad | GitHub |
+| RA | Nome | Função/Squad | GitHub |
 |---|---|---|---|
-| <img src="https://github.com/usuario1.png" width="50"> | **Gustavo Munhoz** | Tech Lead / Cloud/Back-end / n8n / front-end | [@usuario1](https://github.com/Ghzinn966) |
-| <img src="https://github.com/usuario2.png" width="50"> | **Maria Souza** | Front-end | [@usuario2](https://github.com/usuario2) |
-| <img src="https://github.com/usuario3.png" width="50"> | **Carlos Eduardo**| Back-end & n8n | [@usuario3](https://github.com/usuario3) |
+| **3025105314** | **Gustavo Munhoz** | Tech Lead / Cloud /Back-end / n8n / front-end | [@usuario1](https://github.com/Ghzinn966) |
+| **3024101365** | **Vinícius Henrique** | Cloud / Back-end / n8n | [@usuario2](https://github.com/Henryvinii) |
+| **3026104116** | **Murilo Dos Santos Pereira**| Front-end | [@usuario3](https://github.com/murilo581) |
+| **3025106279** | **Kaio Alexandre Kramer**| Front-end / Back-end / n8n | [@usuario4](https://github.com/kaiokramer) |
+| **925108190** | **Nathalia Costa Santos**| Front-end / Back-end | [@usuario5](https://github.com/nnathicosta) |
+| **3025102092** | **Gabriel Gambaro**| Cloud / Front-end / Back-end / n8n | [@usuario6](https://github.com/BieL5070) |
+| **3026104280** | **Bruno Nascimento de Almeida**| Front-end | [@usuario7](https://github.com/BrunoNascimentoAlmeida) |
+| **3126101143** | **Bruno Tenório Barbosa**| Front-end | [@usuario8](https://github.com/Br-Uni9) |
+| **3025101132** | **Victória da Silva Santos**| Back-end & n8n | [@usuario9](https://github.com/victoriasilva-09) |
+| **3025106810** | **Enzo Migoranci**| Front-end | [@usuario10](https://github.com/Migoranxi) |
 <br>
-<p align="center">Feito com ♥ pela equipe [Nome do Grupo]</p>
+<p align="center">Feito com ♥ pela equipe Sasageyo</p>
