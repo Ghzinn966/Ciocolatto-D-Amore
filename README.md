@@ -58,7 +58,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 > **Nota para correção:** O sistema está online e o vídeo está configurado como Não Listado, conforme os requisitos da disciplina.
 
 ## 👥 Equipe
-Este projeto foi construído por um grupo incrível de **[Número]** desenvolvedores:
+Este projeto foi construído por um grupo incrível de **10** desenvolvedores:
 
 | RA | Nome | Função/Squad | GitHub |
 |---|---|---|---|
