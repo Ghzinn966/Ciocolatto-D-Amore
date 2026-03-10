@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="./docs/logo-projeto.png" alt="Logo do Projeto" width="200">
+  <img src="./docs/ciocolatto.png.jpeg" alt="Logo do Projeto" width="200">
   <br>
   Ciocolatto D'amore
   <br>
