@@ -71,6 +71,6 @@ Este projeto foi construído por um grupo incrível de **10** desenvolvedores:
 | **3026104280** | **Bruno Nascimento de Almeida**| Front-end | [@usuario7](https://github.com/BrunoNascimentoAlmeida) |
 | **3126101143** | **Bruno Tenório Barbosa**| Front-end | [@usuario8](https://github.com/Br-Uni9) |
 | **3025101132** | **Victória da Silva Santos**| Back-end & n8n | [@usuario9](https://github.com/victoriasilva-09) |
-| **3025106810** | **Enzo Migoranci**| Front-end | [@usuario10](https://github.com/Migoranxi) |
+| **3026105810** | **Enzo Migoranci**| Front-end | [@usuario10](https://github.com/Migoranxi) |
 <br>
 <p align="center">Feito com ♥ pela equipe Sasageyo</p>
