@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ciocolatto D'amore</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F9D0CE;
+    --warm-white: #fff7f7;
+    --caramel: #F297A0;
+    --caramel-light: #f5b0b8;
+    --caramel-dark: #d4707a;
+    --chocolate: #F297A0;
+    --chocolate-mid: #e07880;
+    --rose: #F9D0CE;
+    --rose-light: #fde8e6;
+    --sage: #B6BB79;
+    --sage-light: #d4d89a;
+    --ink: #4a2a2e;
+    --muted: #b07880;
+    --border: rgba(242,151,160,0.25);
+    --shadow: 0 4px 24px rgba(242,151,160,0.1);
+    --shadow-lg: 0 12px 48px rgba(242,151,160,0.18);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #F3EBD8;
+    color: var(--ink);
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 10% 20%, rgba(249,208,206,0.45) 0%, transparent 60%),
+      radial-gradient(ellipse at 90% 80%, rgba(182,187,121,0.15) 0%, transparent 60%);
+  }
+
+  /* HEADER */
+  header {
+    background: var(--chocolate);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(61,31,13,0.4);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .logo-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--cream);
+    letter-spacing: 0.01em;
+  }
+
+  .logo-text span {
+    color: var(--caramel-light);
+    font-style: italic;
+  }
+
+  .header-date {
+    font-size: 13px;
+    color: rgba(253,246,238,0.5);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+
+  /* MAIN LAYOUT */
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 40px 60px;
+  }
+
+  /* SUMMARY CARDS */
+  .summary-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 24px 28px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .card-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .card-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--chocolate);
+    line-height: 1;
+  }
+
+  .card-value.green { color: var(--sage); }
+  .card-value.caramel { color: var(--caramel); }
+  .card-value.rose { color: #c0726a; }
+
+  .card-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* TWO COLUMN */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 28px;
+    animation: fadeUp 0.5s 0.1s ease both;
+  }
+
+  /* SECTION */
+  .section {
+    background: var(--warm-white);
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .section-header {
+    padding: 22px 28px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--chocolate);
+  }
+
+  .section-title small {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+    margin-left: 8px;
+  }
+
+  /* TABLE */
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead th {
+    background: rgba(200,135,74,0.06);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 12px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  tbody tr {
+    border-bottom: 1px solid rgba(200,135,74,0.1);
+    transition: background 0.15s;
+  }
+
+  tbody tr:hover { background: rgba(200,135,74,0.04); }
+  tbody tr:last-child { border-bottom: none; }
+
+  td {
+    padding: 14px 20px;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+
+  .product-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .product-emoji {
+    width: 36px;
+    height: 36px;
+    background: var(--rose-light);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .product-name {
+    font-weight: 500;
+    color: var(--chocolate);
+  }
+
+  .product-category {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+
+  .stock-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .stock-ok { background: rgba(182,187,121,0.2); color: #7a8a30; }
+  .stock-low { background: rgba(242,151,160,0.2); color: #c05060; }
+  .stock-out { background: rgba(242,151,160,0.15); color: #a04040; }
+
+  .price { color: var(--caramel-dark); font-weight: 600; }
+
+  .action-btn {
+    background: none;
+    border: 1.5px solid var(--border);
+    color: var(--muted);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    transition: all 0.15s;
+    margin-right: 4px;
+  }
+
+  .action-btn:hover {
+    border-color: var(--caramel);
+    color: var(--caramel);
+    background: rgba(200,135,74,0.05);
+  }
+
+  .action-btn.danger:hover {
+    border-color: #c0726a;
+    color: #c0726a;
+    background: rgba(192,114,106,0.05);
+  }
+
+  /* SIDE PANEL */
+  .side-panel { display: flex; flex-direction: column; gap: 20px; }
+
+  /* FORM */
+  .form-body { padding: 24px 28px; }
+
+  .form-row { margin-bottom: 16px; }
+  .form-row label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 7px;
+  }
+
+  .form-row input,
+  .form-row select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: #F3EBD8;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .form-row input:focus,
+  .form-row select:focus {
+    border-color: var(--caramel);
+    background: #fff;
+  }
+
+  .form-row input::placeholder { color: rgba(154,128,112,0.6); }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .btn-primary {
+    width: 100%;
+    padding: 12px;
+    background: var(--chocolate);
+    color: var(--cream);
+    border: none;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: all 0.2s;
+    margin-top: 4px;
+  }
+
+  .btn-primary:hover {
+    background: var(--chocolate-mid);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(61,31,13,0.25);
+  }
+
+  .btn-secondary {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: var(--caramel);
+    border: 1.5px solid var(--caramel);
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(200,135,74,0.08);
+  }
+
+  /* RECENT SALES */
+  .sales-list { padding: 8px 0; }
+
+  .sale-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 28px;
+    border-bottom: 1px solid rgba(200,135,74,0.1);
+    transition: background 0.15s;
+  }
+
+  .sale-item:last-child { border-bottom: none; }
+  .sale-item:hover { background: rgba(200,135,74,0.04); }
+
+  .sale-left { display: flex; align-items: center; gap: 12px; }
+
+  .sale-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--caramel);
+    flex-shrink: 0;
+  }
+
+  .sale-product { font-size: 14px; font-weight: 500; color: var(--chocolate); }
+  .sale-info { font-size: 12px; color: var(--muted); margin-top: 1px; }
+
+  .sale-right { text-align: right; }
+  .sale-price { font-size: 15px; font-weight: 600; color: var(--caramel-dark); }
+  .sale-qty { font-size: 11px; color: var(--muted); }
+
+  /* TOAST */
+  .toast-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .toast {
+    background: var(--chocolate);
+    color: var(--cream);
+    padding: 14px 20px;
+    border-radius: 14px;
+    font-size: 14px;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideIn 0.3s ease, fadeOut 0.3s 2.5s ease forwards;
+    max-width: 300px;
+  }
+
+  .toast.success { border-left: 4px solid var(--sage); }
+  .toast.error { border-left: 4px solid #c0726a; }
+  .toast.warning { border-left: 4px solid #d4a017; }
+
+  /* MODAL */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(61,31,13,0.5);
+    backdrop-filter: blur(4px);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+  }
+
+  .modal-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .modal {
+    background: var(--warm-white);
+    border-radius: 24px;
+    padding: 32px;
+    width: 420px;
+    max-width: 90vw;
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.25s ease;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .modal-overlay.open .modal {
+    transform: translateY(0) scale(1);
+  }
+
+  .modal h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--chocolate);
+    margin-bottom: 20px;
+  }
+
+  .modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .modal-actions button {
+    flex: 1;
+    padding: 11px;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .btn-cancel {
+    background: transparent;
+    border: 1.5px solid var(--border);
+    color: var(--muted);
+  }
+
+  .btn-cancel:hover { border-color: var(--muted); }
+
+  .btn-confirm {
+    background: var(--chocolate);
+    border: none;
+    color: var(--cream);
+  }
+
+  .btn-confirm:hover { background: var(--caramel-dark); }
+
+  /* SEARCH */
+  .search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #F3EBD8;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 0 14px;
+    overflow: hidden;
+  }
+
+  .search-box input {
+    border: none;
+    background: transparent;
+    padding: 9px 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    width: 200px;
+  }
+
+  .search-box input::placeholder { color: var(--muted); }
+
+  .search-icon { color: var(--muted); font-size: 15px; }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    background: rgba(200,135,74,0.08);
+    border-radius: 10px;
+    padding: 4px;
+  }
+
+  .tab {
+    padding: 7px 16px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--muted);
+    transition: all 0.15s;
+    border: none;
+    background: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .tab.active {
+    background: var(--warm-white);
+    color: var(--chocolate);
+    box-shadow: 0 1px 6px rgba(61,31,13,0.1);
+  }
+
+  /* EMPTY STATE */
+  .empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .empty-state .emoji { font-size: 36px; display: block; margin-bottom: 12px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes fadeOut {
+    to { opacity: 0; transform: translateX(20px); }
+  }
+
+  @media (max-width: 1024px) {
+    .main-grid { grid-template-columns: 1fr; }
+    .summary-row { grid-template-columns: repeat(2, 1fr); }
+    .container { padding: 24px 20px; }
+    header { padding: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="width:52px;height:52px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.15));">
+        <circle cx="52" cy="52" r="46" fill="rgba(0,0,0,0.08)"/>
+        <circle cx="50" cy="50" r="46" fill="white"/>
+        <circle cx="50" cy="50" r="42" fill="#F9D0CE"/>
+        <ellipse cx="50" cy="79" rx="24" ry="3.5" fill="none" stroke="#C2274A" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M26 62 Q26 75 26 75 Q26 78 50 78 Q74 78 74 75 L74 62" fill="none" stroke="#C2274A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M26 62 Q50 65 74 62" fill="none" stroke="#C2274A" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M30 48 Q30 61 30 61 Q30 63 50 63 Q70 63 70 61 L70 48" fill="none" stroke="#C2274A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M30 48 Q50 51 70 48" fill="none" stroke="#C2274A" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M30 48 Q34 43 38 47 Q42 43 46 47 Q50 43 54 47 Q58 43 62 47 Q66 43 70 48" fill="none" stroke="#C2274A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M35 48 Q34 53 35 55" fill="none" stroke="#C2274A" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M50 47 Q49 54 50 57" fill="none" stroke="#C2274A" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M64 48 Q63 52 64 54" fill="none" stroke="#C2274A" stroke-width="1.3" stroke-linecap="round"/>
+        <rect x="47.5" y="33" width="5" height="14" rx="1" fill="none" stroke="#C2274A" stroke-width="1.3"/>
+        <path d="M47.5 36 Q50 37.5 52.5 36" fill="none" stroke="#C2274A" stroke-width="1" stroke-linecap="round"/>
+        <path d="M47.5 39 Q50 40.5 52.5 39" fill="none" stroke="#C2274A" stroke-width="1" stroke-linecap="round"/>
+        <path d="M47.5 42 Q50 43.5 52.5 42" fill="none" stroke="#C2274A" stroke-width="1" stroke-linecap="round"/>
+        <path d="M50 33 Q47 29 50 26 Q53 29 50 33Z" fill="none" stroke="#C2274A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M50 32 Q49 30 50 28 Q51 30 50 32Z" fill="#C2274A" opacity="0.4"/>
+        <path d="M44 55 Q40 51 43 49 Q46 48 47 51 Q47 53 44 55Z" fill="none" stroke="#C2274A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M56 55 Q60 51 57 49 Q54 48 53 51 Q53 53 56 55Z" fill="none" stroke="#C2274A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="50" cy="53" r="1.8" fill="none" stroke="#C2274A" stroke-width="1.2"/>
+        <path d="M48.5 54.5 Q46 58 45 61" fill="none" stroke="#C2274A" stroke-width="1" stroke-linecap="round"/>
+        <path d="M51.5 54.5 Q54 58 55 61" fill="none" stroke="#C2274A" stroke-width="1" stroke-linecap="round"/>
+        <path d="M18 38 L19 36 L20 38 L18 37 L20 37Z" fill="none" stroke="#C2274A" stroke-width="0.9"/>
+        <path d="M79 38 L80 36 L81 38 L79 37 L81 37Z" fill="none" stroke="#C2274A" stroke-width="0.9"/>
+        <path d="M20 62 L21 60 L22 62 L20 61 L22 61Z" fill="none" stroke="#C2274A" stroke-width="0.8"/>
+        <path d="M78 62 L79 60 L80 62 L78 61 L80 61Z" fill="none" stroke="#C2274A" stroke-width="0.8"/>
+      </svg>
+    </div>
+    <div class="logo-text">Ciocolatto <span>D'amore</span></div>
+  </div>
+  <div class="header-date" id="header-date"></div>
+</header>
+
+<div class="container">
+
+  <!-- SUMMARY CARDS -->
+  <div class="summary-row">
+    <div class="card">
+      <div class="card-label">Produtos Cadastrados</div>
+      <div class="card-value caramel" id="total-products">0</div>
+      <div class="card-sub">no estoque atual</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Vendas Hoje</div>
+      <div class="card-value" id="sales-today">0</div>
+      <div class="card-sub">transações registradas</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Faturamento Hoje</div>
+      <div class="card-value green" id="revenue-today">R$ 0,00</div>
+      <div class="card-sub">receita do dia</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Estoque Baixo</div>
+      <div class="card-value rose" id="low-stock">0</div>
+      <div class="card-sub">produtos críticos</div>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="main-grid">
+
+    <!-- LEFT: PRODUCTS TABLE -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-title">Produtos <small>Estoque atual</small></div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-input" placeholder="Buscar produto..." oninput="filterProducts()">
+          </div>
+          <div class="tabs">
+            <button class="tab active" onclick="setFilter('all', this)">Todos</button>
+            <button class="tab" onclick="setFilter('low', this)">Baixo</button>
+            <button class="tab" onclick="setFilter('out', this)">Zerado</button>
+          </div>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Qtd. Estoque</th>
+              <th>Preço Unit.</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="products-tbody">
+          </tbody>
+        </table>
+        <div class="empty-state" id="empty-products" style="display:none;">
+          <span class="emoji">🍬</span>
+          Nenhum produto encontrado
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: SIDE PANEL -->
+    <div class="side-panel">
+
+      <!-- ADD PRODUCT / REGISTER SALE FORM -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title" id="form-title">Registrar Venda</div>
+          <div class="tabs">
+            <button class="tab active" id="tab-sale" onclick="switchTab('sale')">Venda</button>
+            <button class="tab" id="tab-product" onclick="switchTab('product')">+ Produto</button>
+          </div>
+        </div>
+
+        <!-- SALE FORM -->
+        <div class="form-body" id="sale-form">
+          <div class="form-row">
+            <label>Produto</label>
+            <select id="sale-product">
+              <option value="">— Selecione —</option>
+            </select>
+          </div>
+          <div class="form-grid">
+            <div class="form-row">
+              <label>Quantidade</label>
+              <input type="number" id="sale-qty" min="1" placeholder="Ex: 3" oninput="updateTotal()">
+            </div>
+            <div class="form-row">
+              <label>Preço (R$)</label>
+              <input type="number" id="sale-price" min="0" step="0.01" placeholder="0,00" oninput="updateTotal()">
+            </div>
+          </div>
+          <!-- total calculado -->
+          <div id="sale-total-box" style="display:none;background:rgba(242,151,160,0.12);border:1.5px solid rgba(242,151,160,0.3);border-radius:12px;padding:12px 16px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">Total</span>
+            <span id="sale-total-value" style="font-family:'Playfair Display',serif;font-size:22px;color:var(--caramel-dark);font-weight:700;">R$ 0,00</span>
+          </div>
+          <div class="form-row">
+            <label>Observação (opcional)</label>
+            <input type="text" id="sale-note" placeholder="Ex: Encomenda cliente João">
+          </div>
+          <button class="btn-primary" onclick="registerSale()">✓ Registrar Venda</button>
+        </div>
+
+        <!-- PRODUCT FORM -->
+        <div class="form-body" id="product-form" style="display:none;">
+          <div class="form-row">
+            <label>Nome do Produto</label>
+            <input type="text" id="prod-name" placeholder="Ex: Bolo de Cenoura">
+          </div>
+          <div class="form-row">
+            <label>Categoria</label>
+            <select id="prod-category">
+              <option value="Bolos Caseirinhos">Bolos Caseirinhos</option>
+              <option value="Brigadeiros">Brigadeiros</option>
+              <option value="Brownies">Brownies</option>
+              <option value="Pão de Mel">Pão de Mel</option>
+              <option value="Geladinho Gourmet">Geladinho Gourmet</option>
+              <option value="Bombom">Bombom</option>
+              <option value="Empadas">Empadas</option>
+              <option value="Outros">Outros</option>
+            </select>
+          </div>
+          <div class="form-grid">
+            <div class="form-row">
+              <label>Qtd. Inicial</label>
+              <input type="number" id="prod-qty" min="0" placeholder="0">
+            </div>
+            <div class="form-row">
+              <label>Preço Unit. (R$)</label>
+              <input type="number" id="prod-price" min="0" step="0.01" placeholder="0,00">
+            </div>
+          </div>
+          <div class="form-row">
+            <label>Estoque Mínimo</label>
+            <input type="number" id="prod-min" min="0" placeholder="Ex: 5" value="5">
+          </div>
+          <button class="btn-primary" onclick="addProduct()">+ Adicionar Produto</button>
+        </div>
+      </div>
+
+      <!-- RECENT SALES -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title">Últimas Vendas <small>Histórico</small></div>
+        </div>
+        <div class="sales-list" id="sales-list">
+          <div class="empty-state">
+            <span class="emoji">🧾</span>
+            Nenhuma venda registrada ainda
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <h3 id="modal-title">Confirmação</h3>
+    <p id="modal-text" style="color:var(--muted);font-size:14px;line-height:1.6;"></p>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
+      <button class="btn-confirm" id="modal-confirm-btn">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div class="toast-container" id="toast-container"></div>
+
+<script>
+  // ─── STATE ───────────────────────────────────────────────
+  let products = [
+    { id: 1,  name: 'Brigadeiro Tradicional',                  category: 'Brigadeiros',       qty: 20, price: 14.50, minStock: 5,  img: 'https://static.ifood-static.com.br/image/upload/t_medium/pratos/f407c2d6-6214-45ff-83f0-926fae16c5a8/202509132221_1OIT_i.jpg' },
+    { id: 2,  name: 'Bolo Vulcão Duo Choco Brownie',           category: 'Bolos Caseirinhos', qty: 10, price: 24.40, minStock: 3,  img: 'https://static.ifood-static.com.br/image/upload/t_medium/pratos/f407c2d6-6214-45ff-83f0-926fae16c5a8/202507031020_MM6X_i.jpg' },
+    { id: 3,  name: 'Bolo Vulcão Cenoura com Chocolate',       category: 'Bolos Caseirinhos', qty: 10, price: 24.40, minStock: 3,  img: 'https://static.ifood-static.com.br/image/upload/t_medium/pratos/f407c2d6-6214-45ff-83f0-926fae16c5a8/202507031017_NF8A_i.jpg' },
+    { id: 4,  name: 'Brownie de Brigadeiro Tradicional',       category: 'Brownies',          qty: 15, price: 15.40, minStock: 5,  img: 'https://static.ifood-static.com.br/image/upload/t_medium/pratos/f407c2d6-6214-45ff-83f0-926fae16c5a8/202509191501_28Y0_i.jpg' },
+    { id: 5,  name: 'Pão de Mel',                              category: 'Pão de Mel',        qty: 30, price:  7.99, minStock: 10, img: 'https://static.ifood-static.com.br/image/upload/t_medium/pratos/f407c2d6-6214-45ff-83f0-926fae16c5a8/202509132229_UMQ2_i.jpg' },
+    { id: 6,  name: 'Geladinho Gourmet Morango',               category: 'Geladinho Gourmet', qty: 20, price: 13.99, minStock: 5,  img: 'https://static.ifood-static.com.br/image/upload/t_medium/pratos/f407c2d6-6214-45ff-83f0-926fae16c5a8/202512170956_OO07_i.jpg' },
+    { id: 7,  name: 'Geladinho Gourmet Sensação',              category: 'Geladinho Gourmet', qty: 20, price: 13.99, minStock: 5,  img: 'https://static.ifood-static.com.br/image/upload/t_medium/pratos/f407c2d6-6214-45ff-83f0-926fae16c5a8/202512170958_N70E_i.jpg' },
+    { id: 8,  name: 'Geladinho Gourmet Maracujá',              category: 'Geladinho Gourmet', qty: 20, price: 13.99, minStock: 5,  img: 'https://static.ifood-static.com.br/image/upload/t_medium/pratos/f407c2d6-6214-45ff-83f0-926fae16c5a8/202512170959_0HNY_i.jpg' },
+    { id: 9,  name: 'Geladinho Gourmet Ninho com Creme de Avelã', category: 'Geladinho Gourmet', qty: 20, price: 13.99, minStock: 5, img: 'https://static.ifood-static.com.br/image/upload/t_medium/pratos/f407c2d6-6214-45ff-83f0-926fae16c5a8/202512170947_3N5E_i.jpg' },
+    { id: 10, name: 'Geladinho Gourmet Paçoca',                category: 'Geladinho Gourmet', qty: 20, price: 13.99, minStock: 5,  img: 'https://static.ifood-static.com.br/image/upload/t_medium/pratos/f407c2d6-6214-45ff-83f0-926fae16c5a8/202512170947_DYE0_i.jpg' },
+    { id: 11, name: 'Geladinho Gourmet Açaí',                  category: 'Geladinho Gourmet', qty: 20, price: 13.99, minStock: 5,  img: 'https://static.ifood-static.com.br/image/upload/t_medium/pratos/f407c2d6-6214-45ff-83f0-926fae16c5a8/202512292121_1MP1_i.jpg' },
+    { id: 12, name: 'Bombom Bolo de Cenoura',                  category: 'Bombom',            qty: 15, price: 18.99, minStock: 5,  img: 'https://static.ifood-static.com.br/image/upload/t_medium/pratos/f407c2d6-6214-45ff-83f0-926fae16c5a8/202603102057_2R86_i.jpg' },
+    { id: 13, name: 'Bombom Cookie de Baunilha',               category: 'Bombom',            qty: 15, price: 18.99, minStock: 5,  img: 'https://static.ifood-static.com.br/image/upload/t_medium/pratos/f407c2d6-6214-45ff-83f0-926fae16c5a8/202603102101_L8KG_i.jpg' },
+    { id: 14, name: 'Bombom Cookie de Chocolate',              category: 'Bombom',            qty: 15, price: 18.99, minStock: 5,  img: 'https://static.ifood-static.com.br/image/upload/t_medium/pratos/f407c2d6-6214-45ff-83f0-926fae16c5a8/202603102103_75U5_i.jpg' },
+    { id: 15, name: 'Empada de Frango',                        category: 'Empadas',           qty: 10, price: 35.99, minStock: 3,  img: 'https://static.ifood-static.com.br/image/upload/t_medium/pratos/f407c2d6-6214-45ff-83f0-926fae16c5a8/202603102135_A0LE_i.jpg' },
+    { id: 16, name: 'Empada de Palmito',                       category: 'Empadas',           qty: 10, price: 35.99, minStock: 3,  img: 'https://static.ifood-static.com.br/image/upload/t_medium/pratos/f407c2d6-6214-45ff-83f0-926fae16c5a8/202603102135_A0LE_i.jpg' },
+  ];
+
+  let sales = [];
+  let nextId = 17;
+  let currentFilter = 'all';
+  let pendingAction = null;
+
+  function updateTotal() {
+    const qty = parseFloat(document.getElementById('sale-qty').value) || 0;
+    const price = parseFloat(document.getElementById('sale-price').value) || 0;
+    const total = qty * price;
+    const box = document.getElementById('sale-total-box');
+    const val = document.getElementById('sale-total-value');
+    if (qty > 0 && price > 0) {
+      box.style.display = 'flex';
+      val.textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+    } else {
+      box.style.display = 'none';
+    }
+  }
+
+  // ─── INIT ─────────────────────────────────────────────────
+  document.getElementById('header-date').textContent = new Date().toLocaleDateString('pt-BR', {
+    weekday: 'long', day: '2-digit', month: 'long', year: 'numeric'
+  });
+
+  function init() {
+    renderProducts();
+    updateSummary();
+    populateSaleSelect();
+    renderSales();
+  }
+
+  // ─── RENDER PRODUCTS ─────────────────────────────────────
+  function getStockStatus(p) {
+    if (p.qty === 0) return { cls: 'stock-out', label: '● Zerado' };
+    if (p.qty <= p.minStock) return { cls: 'stock-low', label: '● Baixo' };
+    return { cls: 'stock-ok', label: '● Ok' };
+  }
+
+  function getCategoryEmoji(cat) {
+    return cat.split(' ')[0] || '🍬';
+  }
+
+  function formatCategory(cat) {
+    const map = {
+      'Bolos Caseirinhos': 'Bolos Caseiros',
+      'Pão de Mel': 'Pão de Mel',
+      'Geladinho Gourmet': 'Geladinhos',
+    };
+    return map[cat] || cat;
+  }
+
+  function renderProducts() {
+    const search = document.getElementById('search-input').value.toLowerCase();
+    let list = products.filter(p => {
+      const matchSearch = p.name.toLowerCase().includes(search);
+      if (currentFilter === 'low') return matchSearch && p.qty > 0 && p.qty <= p.minStock;
+      if (currentFilter === 'out') return matchSearch && p.qty === 0;
+      return matchSearch;
+    });
+
+    const tbody = document.getElementById('products-tbody');
+    const empty = document.getElementById('empty-products');
+    tbody.innerHTML = '';
+
+    if (list.length === 0) {
+      empty.style.display = 'block';
+    } else {
+      empty.style.display = 'none';
+      list.forEach(p => {
+        const st = getStockStatus(p);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>
+            <div class="product-cell">
+              ${p.img
+                ? `<img src="${p.img}" alt="${p.name}" style="width:44px;height:44px;border-radius:10px;object-fit:cover;flex-shrink:0;border:1px solid rgba(242,151,160,0.2);">`
+                : `<div class="product-emoji">🍬</div>`}
+              <div>
+                <div class="product-name">${p.name}</div>
+                <div class="product-category">${formatCategory(p.category)}</div>
+              </div>
+            </div>
+          </td>
+          <td style="font-weight:600;color:var(--chocolate)">${p.qty} un</td>
+          <td class="price">R$ ${p.price.toFixed(2).replace('.',',')}</td>
+          <td><span class="stock-badge ${st.cls}">${st.label}</span></td>
+          <td>
+            <button class="action-btn" onclick="openRestockModal(${p.id})">+ Repor</button>
+            <button class="action-btn danger" onclick="openDeleteModal(${p.id})">✕</button>
+          </td>`;
+        tbody.appendChild(tr);
+      });
+    }
+
+    updateSummary();
+    populateSaleSelect();
+  }
+
+  // ─── FILTERS ─────────────────────────────────────────────
+  function setFilter(f, btn) {
+    currentFilter = f;
+    document.querySelectorAll('.section-header .tabs .tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    renderProducts();
+  }
+
+  function filterProducts() { renderProducts(); }
+
+  // ─── SUMMARY ─────────────────────────────────────────────
+  function updateSummary() {
+    document.getElementById('total-products').textContent = products.length;
+    const todayStr = new Date().toDateString();
+    const todaySales = sales.filter(s => new Date(s.date).toDateString() === todayStr);
+    document.getElementById('sales-today').textContent = todaySales.length;
+    const rev = todaySales.reduce((a, s) => a + s.total, 0);
+    document.getElementById('revenue-today').textContent = 'R$ ' + rev.toFixed(2).replace('.', ',');
+    const lowCount = products.filter(p => p.qty > 0 && p.qty <= p.minStock || p.qty === 0).length;
+    document.getElementById('low-stock').textContent = lowCount;
+  }
+
+  // ─── SELECT ───────────────────────────────────────────────
+  function populateSaleSelect() {
+    const sel = document.getElementById('sale-product');
+    const cur = sel.value;
+    sel.innerHTML = '<option value="">— Selecione —</option>';
+    products.forEach(p => {
+      const opt = document.createElement('option');
+      opt.value = p.id;
+      opt.textContent = `${p.name} (${p.qty} un)`;
+      sel.appendChild(opt);
+    });
+    sel.value = cur;
+
+    // Auto-fill price
+    sel.onchange = () => {
+      const p = products.find(x => x.id == sel.value);
+      if (p) document.getElementById('sale-price').value = p.price.toFixed(2);
+    };
+  }
+
+  // ─── ADD PRODUCT ─────────────────────────────────────────
+  function addProduct() {
+    const name = document.getElementById('prod-name').value.trim();
+    const cat = document.getElementById('prod-category').value;
+    const qty = parseInt(document.getElementById('prod-qty').value) || 0;
+    const price = parseFloat(document.getElementById('prod-price').value) || 0;
+    const min = parseInt(document.getElementById('prod-min').value) || 5;
+
+    if (!name) return showToast('Por favor, informe o nome do produto.', 'error');
+    if (price <= 0) return showToast('Informe um preço válido.', 'error');
+
+    products.push({ id: nextId++, name, category: cat, qty, price, minStock: min });
+    document.getElementById('prod-name').value = '';
+    document.getElementById('prod-qty').value = '';
+    document.getElementById('prod-price').value = '';
+    renderProducts();
+    showToast(`"${name}" adicionado ao estoque!`, 'success');
+  }
+
+  // ─── REGISTER SALE ───────────────────────────────────────
+  function registerSale() {
+    const pId = parseInt(document.getElementById('sale-product').value);
+    const qty = parseInt(document.getElementById('sale-qty').value);
+    const price = parseFloat(document.getElementById('sale-price').value);
+    const note = document.getElementById('sale-note').value.trim();
+
+    if (!pId) return showToast('Selecione um produto.', 'error');
+    if (!qty || qty < 1) return showToast('Informe uma quantidade válida.', 'error');
+    if (!price || price <= 0) return showToast('Informe um preço válido.', 'error');
+
+    const p = products.find(x => x.id === pId);
+    if (!p) return;
+    if (p.qty < qty) return showToast(`Estoque insuficiente! Disponível: ${p.qty} un.`, 'error');
+
+    p.qty -= qty;
+    sales.unshift({
+      id: Date.now(),
+      productName: p.name,
+      emoji: getCategoryEmoji(p.category),
+      qty,
+      unitPrice: price,
+      total: qty * price,
+      note,
+      date: new Date()
+    });
+
+    document.getElementById('sale-product').value = '';
+    document.getElementById('sale-qty').value = '';
+    document.getElementById('sale-price').value = '';
+    document.getElementById('sale-total-value').textContent = 'R$ 0,00';
+    updateTotal();
+    document.getElementById('sale-note').value = '';
+
+    renderProducts();
+    renderSales();
+    if (p.qty <= p.minStock && p.qty > 0) {
+      showToast(`Venda registrada! ⚠️ Estoque de "${p.name}" está baixo (${p.qty} un).`, 'warning');
+    } else if (p.qty === 0) {
+      showToast(`Venda registrada! ❌ "${p.name}" zerou o estoque!`, 'warning');
+    } else {
+      showToast('Venda registrada com sucesso!', 'success');
+    }
+  }
+
+  // ─── RENDER SALES ─────────────────────────────────────────
+  function renderSales() {
+    const container = document.getElementById('sales-list');
+    if (sales.length === 0) {
+      container.innerHTML = `<div class="empty-state"><span class="emoji">🧾</span>Nenhuma venda registrada ainda</div>`;
+      return;
+    }
+    container.innerHTML = sales.slice(0, 8).map(s => `
+      <div class="sale-item">
+        <div class="sale-left">
+          <div class="sale-dot"></div>
+          <div>
+            <div class="sale-product">${s.emoji} ${s.productName}</div>
+            <div class="sale-info">${formatTime(s.date)}${s.note ? ' · ' + s.note : ''}</div>
+          </div>
+        </div>
+        <div class="sale-right">
+          <div class="sale-price">R$ ${s.total.toFixed(2).replace('.',',')}</div>
+          <div class="sale-qty">${s.qty} un × R$ ${s.unitPrice.toFixed(2).replace('.',',')}</div>
+        </div>
+      </div>`).join('');
+  }
+
+  function formatTime(date) {
+    return new Date(date).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+  }
+
+  // ─── TABS ─────────────────────────────────────────────────
+  function switchTab(tab) {
+    const isSale = tab === 'sale';
+    document.getElementById('sale-form').style.display = isSale ? '' : 'none';
+    document.getElementById('product-form').style.display = isSale ? 'none' : '';
+    document.getElementById('form-title').textContent = isSale ? 'Registrar Venda' : 'Novo Produto';
+    document.getElementById('tab-sale').classList.toggle('active', isSale);
+    document.getElementById('tab-product').classList.toggle('active', !isSale);
+  }
+
+  // ─── MODALS ───────────────────────────────────────────────
+  function openRestockModal(id) {
+    const p = products.find(x => x.id === id);
+    document.getElementById('modal-title').textContent = 'Repor Estoque';
+    document.getElementById('modal-text').innerHTML = `
+      <strong>${p.name}</strong><br>Estoque atual: ${p.qty} un<br><br>
+      <label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px;">Quantidade a adicionar</label>
+      <input type="number" id="restock-qty" min="1" placeholder="Ex: 10" value="10"
+        style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;background:var(--cream);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);outline:none;">`;
+    document.getElementById('modal-confirm-btn').textContent = 'Repor';
+    pendingAction = () => {
+      const qty = parseInt(document.getElementById('restock-qty').value) || 0;
+      if (qty < 1) return showToast('Informe uma quantidade válida.', 'error');
+      p.qty += qty;
+      renderProducts();
+      showToast(`${qty} unidades adicionadas a "${p.name}"!`, 'success');
+      closeModal();
+    };
+    document.getElementById('modal-overlay').classList.add('open');
+    setTimeout(() => document.getElementById('restock-qty')?.focus(), 300);
+  }
+
+  function openDeleteModal(id) {
+    const p = products.find(x => x.id === id);
+    document.getElementById('modal-title').textContent = 'Remover Produto';
+    document.getElementById('modal-text').textContent = `Tem certeza que deseja remover "${p.name}" do estoque? Esta ação não pode ser desfeita.`;
+    document.getElementById('modal-confirm-btn').textContent = 'Remover';
+    document.getElementById('modal-confirm-btn').style.background = '#c0726a';
+    pendingAction = () => {
+      products = products.filter(x => x.id !== id);
+      renderProducts();
+      showToast(`"${p.name}" removido do estoque.`, 'success');
+      closeModal();
+    };
+    document.getElementById('modal-overlay').classList.add('open');
+  }
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.getElementById('modal-confirm-btn').style.background = '';
+    pendingAction = null;
+  }
+
+  document.getElementById('modal-confirm-btn').onclick = () => { if (pendingAction) pendingAction(); };
+  document.getElementById('modal-overlay').onclick = (e) => { if (e.target === e.currentTarget) closeModal(); };
+
+  // ─── TOAST ────────────────────────────────────────────────
+  function showToast(msg, type = 'success') {
+    const c = document.getElementById('toast-container');
+    const t = document.createElement('div');
+    t.className = `toast ${type}`;
+    t.innerHTML = `<span>${type === 'success' ? '✓' : type === 'error' ? '✕' : '⚠'}</span> ${msg}`;
+    c.appendChild(t);
+    setTimeout(() => t.remove(), 3000);
+  }
+
+  // ─── START ────────────────────────────────────────────────
+  init();
+</script>
+</body>
+</html>
