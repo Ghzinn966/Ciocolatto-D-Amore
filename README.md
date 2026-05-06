@@ -69,6 +69,6 @@ Este projeto foi construído por um grupo incrível de **10** desenvolvedores:
 | **925108190** | **Nathalia Costa Santos**| Front-end / Back-end | [@usuario5](https://github.com/nnathicosta) |
 | **3025102092** | **Gabriel Gambaro**| Cloud / Front-end / Back-end / n8n | [@usuario6](https://github.com/BieL5070) |
 | **3026104280** | **Bruno Nascimento de Almeida**| Front-end | [@usuario7](https://github.com/BrunoNascimentoAlmeida) |
-| **3025101132** | **Victória da Silva Santos**| Back-end & n8n | [@usuario9](https://github.com/victoriasilva-09) |
+| **3025101132** | **Victória da Silva Santos**| Back-end & n8n | [@usuario8](https://github.com/victoriasilva-09) |
 <br>
 <p align="center">Feito com ♥ pela equipe Sasageyo</p>
